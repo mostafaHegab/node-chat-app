@@ -1,0 +1,22 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container" id="onlineFriends">
+    <% for (let group of groups) { %>
+        <div class="col col-12 col-md-6 col-lg-4 bg-primary">
+            <img class="user-image" src="/<%= group.image %>">
+            <div class="user-data">
+                <h3>
+                    <a href="/groups/<%= group._id %>"><%= group.name %></a>
+                </h3>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('parts/scripts') %>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/sockets/init.js"></script>
+
+</body>
+</html>

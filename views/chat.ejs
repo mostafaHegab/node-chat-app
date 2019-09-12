@@ -1,0 +1,32 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="row chat">
+    <input type="hidden" id="chatId" value="<%= chatId%>">
+    <div class="col col-12 col-md-3 side">
+        <img src="/<%= friendData.image%>"> <br>
+        <a href="/profile/<%= friendData.id%>"><%= friendData.username%></a><br><br>
+        <button class="btn btn-success" id="callBtn">Video Call</button>
+    </div>
+    <div class="col col-12 col-md-9 messages">
+
+        <div id="messages-container">
+            <% for (let message of messages) { %>
+                <span class="msg <%= String(message.sender) === isUser ? 'left' : 'right'%>"><%= message.content%></span>
+            <% } %>
+        </div>
+        <div class="messages-form">
+            <textarea id="message"></textarea>
+            <button id="sendBtn" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+</div>
+
+<%- include('parts/scripts') %>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script>
+<script src="/js/sockets/init.js"></script>
+<script src="/js/sockets/chat.js"></script>
+
+</body>
+</html>

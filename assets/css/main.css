@@ -1,0 +1,120 @@
+body {
+    padding-bottom: 20px;
+}
+
+nav {
+    margin-bottom: 15px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 15px;
+}
+
+.row,
+.col {
+    margin-bottom: 15px;
+}
+
+.col {
+    padding: 0 7.5px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+textarea.form-control {
+    height: 60px;
+    resize: none;
+}
+
+#friendRequestsDropdown {
+    margin-right: 20px;
+}
+
+.user-image {
+    height: 100px;
+    margin-right: 20px;
+}
+
+.user-data {
+    display: inline-block;
+}
+
+.user-data a {
+    color: #fff;
+}
+
+#onlineFriends .col {
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #1111b3;
+}
+
+.chat {
+    margin-top: -15px;
+}
+
+.chat .side {
+    text-align: center;
+    background: #343a40;
+    padding: 20px 0;
+    overflow: auto;
+}
+
+.chat .side a {
+    color: #fff;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.chat span.msg {
+    display: block;
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.chat span.msg.left {
+    background: #007bff;
+}
+
+.chat span.msg.right {
+    background: #7d7d7d;
+    margin-left: 7%;
+}
+
+.chat .messages {
+    height: 83vh;
+    padding: 15px;
+    position: relative;
+}
+
+.chat #messages-container {
+    height: 85%;
+    overflow: auto;
+}
+
+.chat .messages-form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.chat .messages-form textarea {
+    height: 50px;
+    resize: none;
+    width: 80%;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.chat .messages-form button {
+    position: relative;
+    top: -20px;
+}

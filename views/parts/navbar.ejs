@@ -1,0 +1,52 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if(isUser) { %>
+        <li class="nav-item <%= pageTitle === 'Home' ? 'active' : '' %>">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item <%= pageTitle === 'Groups' ? 'active' : '' %>">
+          <a class="nav-link" href="/groups">Groups</a>
+        </li>
+        <li class="nav-item <%= pageTitle === 'Friends' ? 'active' : '' %>">
+          <a class="nav-link" href="/friends">Friends</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item <%= pageTitle === 'Login' ? 'active' : '' %>">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item <%= pageTitle === 'Signup' ? 'active' : '' %>">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+      <% } %>
+    </ul>
+    <% if(isUser) { %>
+    <input id="userId" type="hidden" value="<%= isUser%>">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="friendRequestsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Friend Requests
+      </button>
+      <div id="friendRequests" class="dropdown-menu" aria-labelledby="friendRequestsDropdown">
+        <% if (friendRequests.length === 0) { %>
+        <span>no friend requests</span>
+        <% } %>
+        <% for (let request of friendRequests) { %>
+        <a class="dropdown-item" href="/profile/<%= request.id %>">
+          <%= request.name %>
+        </a>
+        <% } %>
+      </div>
+    </div>
+    <form action="/logout" method="POST">
+      <input type="submit" value="Logout" class="btn btn-danger">
+    </form>
+    <% } %>
+  </div>
+  </div>
+</nav>

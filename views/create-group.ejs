@@ -1,0 +1,24 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container">
+    <form action="/groups/create" method="POST">
+        <input class="form-control" type="text" name="name" placeholder="Group Name">
+        <input type="hidden" name="users" value="<%= isUser %>">
+        <% for (let friend of friends) { %>
+            <div class="col col-12 col-md-6 col-lg-4">
+                <input type="checkbox" name="users" value="<%= friend.id %>">
+                <img style="margin-left: 15px;width: 50px;height: 50px;" class="user-image" src="/<%= friend.image %>">
+                <a href="/profile/<%= friend.id %>"><%= friend.name %></a>
+            </div>
+        <% } %>
+        <input type="submit" value="Create" class="btn btn-primary">
+    </form>
+</div>
+
+<%- include('parts/scripts') %>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/sockets/init.js"></script>
+
+</body>
+</html>

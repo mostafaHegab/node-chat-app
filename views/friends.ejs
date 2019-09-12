@@ -1,0 +1,26 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container" id="onlineFriends">
+        <div>
+            <a href="/groups/create" class="btn btn-primary">Create Group</a>
+        </div><br>
+    <% for (let friend of friends) { %>
+        <div class="col col-12 col-md-6 col-lg-4 bg-primary">
+            <img class="user-image" src="/<%= friend.image %>">
+            <div class="user-data">
+                <h3>
+                    <a href="/profile/<%= friend.id %>"><%= friend.name %></a>
+                </h3>
+                <a href="/chat/<%= friend.chatId %>" class="btn btn-success">Chat</a>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('parts/scripts') %>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/sockets/init.js"></script>
+
+</body>
+</html>
