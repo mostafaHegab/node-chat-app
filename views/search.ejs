@@ -1,0 +1,36 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container">
+    <form action="/search" class="text-center">
+        <input type="text" name="name" class="form-control" placeholder="Enter name">
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form> <br>
+    <% if(searchMode) { %>
+        <div>
+            <% if (users.length === 0) { %>
+                <p class="alert alert-danger">No Users found</p>
+            <% } else { %>
+                <div>
+                    <% for (let user of users) { %>
+                        <div class="col col-12 col-md-6 col-lg-4 bg-primary" style="padding-top: 15px; padding-bottom: 15px">
+                            <img class="user-image" src="/<%= user.image %>">
+                            <div class="user-data">
+                                <h3>
+                                    <a href="/profile/<%= user._id %>"><%= user.username %></a>
+                                </h3>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+</div>
+
+<%- include('parts/scripts') %>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/sockets/init.js"></script>
+
+</body>
+</html>

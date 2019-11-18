@@ -3,8 +3,7 @@ const bcrypt = require("bcrypt");
 
 const User = require("./user.model").User;
 
-const DB_URL =
-    "mongodb+srv://kmrscript:kmrscript@cluster0-eb4ve.mongodb.net/chat-app?retryWrites=true&w=majority";
+const DB_URL = "mongodb://localhost:27017/chat-app";
 
 exports.createNewUser = (username, email, password) => {
     return new Promise((resolve, reject) => {

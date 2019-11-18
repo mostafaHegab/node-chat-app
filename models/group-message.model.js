@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const DB_URL =
-    "mongodb+srv://kmrscript:kmrscript@cluster0-eb4ve.mongodb.net/chat-app?retryWrites=true&w=majority";
+const DB_URL = "mongodb://localhost:27017/chat-app";
 
 const messageSchema = mongoose.Schema({
     group: { type: mongoose.Schema.Types.ObjectId, ref: "group" },

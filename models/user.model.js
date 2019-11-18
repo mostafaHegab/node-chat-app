@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const Chat = require("./chat.model").Chat;
 
-const DB_URL =
-    "mongodb+srv://kmrscript:kmrscript@cluster0-eb4ve.mongodb.net/chat-app?retryWrites=true&w=majority";
+const DB_URL = "mongodb://localhost:27017/chat-app";
 
 const userSchema = mongoose.Schema({
     username: String,
@@ -26,6 +25,17 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model("user", userSchema);
 exports.User = User;
+
+exports.getUsers = async query => {
+    try {
+        await mongoose.connect(DB_URL)
+        let users = await User.find(query)
+        return users
+    } catch(err) {
+        mongoose.disconnect();
+        throw new Error(error);
+    }
+}
 
 exports.getUserData = id => {
     return new Promise((resolve, reject) => {

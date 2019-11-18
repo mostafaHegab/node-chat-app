@@ -7,4 +7,6 @@ router.get("/", authGuard.isAuth, homeController.getHome);
 
 router.get("/friends", authGuard.isAuth, homeController.getFriends);
 
+router.get("/search", authGuard.isAuth, homeController.getSearch)
+
 module.exports = router;

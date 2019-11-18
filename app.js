@@ -30,8 +30,7 @@ app.use(express.static(path.join(__dirname, "images")));
 app.use(flash());
 
 const STORE = new SessionStore({
-    uri:
-        "mongodb+srv://kmrscript:kmrscript@cluster0-eb4ve.mongodb.net/chat-app?retryWrites=true&w=majority",
+    uri: "mongodb://localhost:27017/chat-app",
     collection: "sessions"
 });
 
